@@ -209,6 +209,10 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Terragrunt
+
+**/.terragrunt/*
+
 # MacOS
 # General
 .DS_Store
