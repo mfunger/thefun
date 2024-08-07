@@ -1,0 +1,139 @@
+cask '1password'
+cask '1password-cli'
+brew 'adr-tools'
+cask 'alfred'
+brew 'ansible'
+brew 'argocd'
+brew 'asdf'
+brew 'bash-completion'
+brew 'bat'
+cask 'bitwarden'
+cask 'chromium'
+brew 'commitizen'
+brew 'coreutils'
+cask 'crossover'
+brew 'curl'
+brew 'dagger'
+brew 'exiftool'
+cask 'firefox'
+brew 'ffmpeg'
+brew 'fprobe'
+brew 'fzf'
+brew 'graphviz'
+brew 'htop'
+brew 'hugo'
+cask 'iterm2'
+brew 'jenv'
+brew 'jq'
+brew 'lazygit'
+brew 'mas'
+brew 'mkdocs'
+brew 'neovim'
+cask 'obsidian'
+brew 'pass'
+cask 'slack'
+cask 'snagit'
+brew 'starship'
+cask 'steam'
+brew 'stow'
+brew 'telnet'
+brew 'tmux'
+brew 'trash'
+brew 'tree'
+brew 'vim'
+cask 'visual-studio-code'
+brew 'watch'
+brew 'wget'
+cask 'whatsapp'
+brew 'yq'
+brew 'yt-dlp'
+cask 'yubico-yubikey-manager'
+cask 'xbar'
+cask 'zoom'
+## fonts
+# cask 'homebrew/cask-fonts'
+cask 'font-hack-nerd-font'
+
+# api
+cask 'postman'
+cask 'postman-cli'
+
+# cloud
+## AWS
+brew 'awscli'
+# brew 'turbot/tap/steampipe'
+## GCP 
+cask 'google-cloud-sdk'
+
+# git
+brew 'git'
+cask 'gitkraken'
+brew 'gh'
+cask 'git-credential-manager'
+
+# go
+brew 'golang'
+brew 'go-task'
+
+#IaC
+## terraform
+brew 'terraform-docs'
+brew 'tfenv'
+## terragrunt
+brew 'terragrunt'
+## terramate
+brew 'terramate'
+## visualizer
+tap 'inkdrop-org/inkdrop-visualizer'
+brew 'inkdrop-visualizer'
+
+# rdbms
+cask 'pgadmin4'
+cask 'datasette'
+
+# virtual
+# orb
+# cask 'orbstack'
+#colima
+# brew 'colima'
+## k8s
+brew 'helm'
+brew 'helmfile'
+brew 'k9s'
+brew 'kubectl'
+brew 'kubectx'
+brew 'kustomize'
+brew 'krew'
+cask 'rancher'
+brew 'clusterctl'
+
+# python
+brew 'pyenv'
+brew 'python3'
+brew 'ipython'
+brew 'pipx'
+brew 'poetry'
+
+# secrets
+brew 'vault'
+
+# zsh
+brew 'zsh'
+brew 'zsh-autosuggestions'
+brew 'zsh-completions'
+brew 'zsh-syntax-highlighting'
+brew 'zsh-fast-syntax-highlighting'
+
+# mas installs
+mas 'Todoist', id: 585829637
+mas 'Magnet', id: 441258766
+mas '1Password for Safari', id: 1569813296
+mas 'Notability', id: 360593530
+mas 'iStat Menus', id: 1319778037
+# mas 'Xcode', id: 497799835
+
+# FN
+brew 'okta-awscli'
+cask 'keeper-password-manager'
+brew 'helmfile'
+brew 'sops'
