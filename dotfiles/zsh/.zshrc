@@ -105,16 +105,8 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconf="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Manual aliases
-alias tf='terraform'
-alias tg='terragrunt'
-#alias boilerplate='/opt/homebrew/bin/boilerplate_darwin_arm_64'
-alias py3='python3'
-# fzf
-FZF_BASE="$HOME/.fzf"
+# alias zshconf="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # starship
 # eval "$(starship init zsh)"

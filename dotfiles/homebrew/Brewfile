@@ -92,10 +92,6 @@ cask 'pgadmin4'
 cask 'datasette'
 
 # virtual
-# orb
-# cask 'orbstack'
-#colima
-# brew 'colima'
 ## k8s
 brew 'helm'
 brew 'helmfile'
