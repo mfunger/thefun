@@ -19,6 +19,7 @@ cask 'firefox'
 brew 'ffmpeg'
 brew 'fprobe'
 brew 'fzf'
+cask 'google-drive'
 brew 'graphviz'
 brew 'htop'
 brew 'hugo'
@@ -31,6 +32,7 @@ brew 'mkdocs'
 brew 'neovim'
 cask 'obsidian'
 brew 'pass'
+cask 'rectangle'
 cask 'slack'
 cask 'snagit'
 brew 'starship'
@@ -77,8 +79,9 @@ brew 'go-task'
 
 #IaC
 ## terraform
+brew 'terraform'
 brew 'terraform-docs'
-brew 'tfenv'
+# brew 'tfenv' - removed so the CloudPosse tfenv can be installed
 ## terragrunt
 brew 'terragrunt'
 ## terramate
@@ -133,3 +136,5 @@ brew 'okta-awscli'
 cask 'keeper-password-manager'
 brew 'helmfile'
 brew 'sops'
+# brew 'dotenv'
+brew 'dotenvx/brew/dotenvx'

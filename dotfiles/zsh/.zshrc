@@ -60,17 +60,29 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# ZSH_CUSTOM="$ZSH"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf aws brew kubectl kubectx python poetry golang fzf)
+# PLUGINS
+
+plugins=(
+    asdf 
+    aws 
+    brew 
+    colored-man-pages 
+    command-not-found 
+    docker 
+    fzf 
+    git 
+    gh 
+    golang 
+    kubectl 
+    poetry 
+    python
+    # starship 
+    thefuck)
 
 # oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -81,7 +93,10 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 ## syntx hightlight
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
+## starship
+# eval "$(starship init zsh)"
+# export STARSHIP_CONFIG="$HOME/.starship/starship.toml"
+# export STARSHIP_CACHE=~/$STARSHIP_CONFIG/cache
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -104,32 +119,79 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconf="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# starship
-# eval "$(starship init zsh)"
+#  Conf and aliases
+
+## colors
+RED_B='\e[1;91m'
+GREEN_B='\e[1;92m'
+YELLOW_B='\e[1;93m'
+BLUE_B='\e[1;94m'
+PURPLE_B='\e[1;95m'
+CYAN_B='\e[1;96m'
+WHITE_B='\e[1;97m'
+RESET='\e[0m'
+
+red() { echo -e "${RED_B}${1}${RESET}"; }
+green() { echo -e "${GREEN_B}${1}${RESET}"; }
+yellow() { echo -e "${YELLOW_B}${1}${RESET}"; }
+blue() { echo -e "${BLUE_B}${1}${RESET}"; }
+purple() { echo -e "${PURPLE_B}${1}${RESET}"; }
+cyan() { echo -e "${CYAN_B}${1}${RESET}"; }
+white() { echo -e "${WHITE_B}${1}${RESET}"; }
+
+## 1Password
+### SSH
+### export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+## boilerplate
+#alias boilerplate='/opt/homebrew/bin/boilerplate_darwin_arm_64'
+
+## curl
+export PATH="$PATH:/opt/homebrew/opt/curl/bin"
+
+## fzf
+FZF_BASE="$HOME/.fzf"
+
+## go
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
+## IaC
+### tf
+alias tf="terraform"
+### tg
+export TERRAGRUNT_IGNORE_EXTERNAL_DEPENDENCIES=true
+alias tg="terragrunt"
 
 # k8s
-## krew
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-## rancher desktop
-export PATH="~/.rd/bin:$PATH"
+### krew
+export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
+### rancher desktop
+export PATH="$PATH:$HOME/.rd/bin"
 
-# homebrew
+## homebrew
 export PATH="$PATH:/opt/homebrew/bin"
 # export PATH="$PATH:$HOME/.local/binexport"
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_AUTO_UPDATE=1
-## curl
-export PATH="$PATH:/opt/homebrew/opt/curl/bin"
-## postgres
-export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
 
-# 1Password
-## SSH
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+## oh-my-zsh
+alias zshconf="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+
+## postgres
+export PATH="$PATH:/opt/homebrew/opt/postgresql@11/bin"
+
+## python
+alias py3='python3'
+
+## yt-dlp
+alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
 
 # FN
-alias fn-vault='export VAULT_ADDR=https://vault.fiscalnoteprod.net'
+alias fn-vault="export VAULT_ADDR=https://vault.fiscalnoteprod.net"
+alias fn1p="op item get ym72ao6lyeqcvq4qwkbhrzmgnm --reveal --fields label=password | pbcopy"
+alias fnokta="okta-awscli -s -f"
+alias fnsso="aws sso login --sso-session fn-sso"
+alias fnrepos="cd $HOME/fn/repos"
