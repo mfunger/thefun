@@ -1,15 +1,15 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jonathan"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+ZSH_THEME="robbyrussell"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -60,43 +60,20 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM="$ZSH"
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# PLUGINS
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
-plugins=(
-    asdf 
-    aws 
-    brew 
-    colored-man-pages 
-    command-not-found 
-    docker 
-    fzf 
-    git 
-    gh 
-    golang 
-    kubectl 
-    poetry 
-    python
-    # starship 
-    thefuck)
-
-# oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-## autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-## completions
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-## syntx hightlight
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-## starship
-# eval "$(starship init zsh)"
-# export STARSHIP_CONFIG="$HOME/.starship/starship.toml"
-# export STARSHIP_CACHE=~/$STARSHIP_CONFIG/cache
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -108,90 +85,21 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
-
-#  Conf and aliases
-
-## colors
-RED_B='\e[1;91m'
-GREEN_B='\e[1;92m'
-YELLOW_B='\e[1;93m'
-BLUE_B='\e[1;94m'
-PURPLE_B='\e[1;95m'
-CYAN_B='\e[1;96m'
-WHITE_B='\e[1;97m'
-RESET='\e[0m'
-
-red() { echo -e "${RED_B}${1}${RESET}"; }
-green() { echo -e "${GREEN_B}${1}${RESET}"; }
-yellow() { echo -e "${YELLOW_B}${1}${RESET}"; }
-blue() { echo -e "${BLUE_B}${1}${RESET}"; }
-purple() { echo -e "${PURPLE_B}${1}${RESET}"; }
-cyan() { echo -e "${CYAN_B}${1}${RESET}"; }
-white() { echo -e "${WHITE_B}${1}${RESET}"; }
-
-## 1Password
-### SSH
-### export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-
-## boilerplate
-#alias boilerplate='/opt/homebrew/bin/boilerplate_darwin_arm_64'
-
-## curl
-export PATH="$PATH:/opt/homebrew/opt/curl/bin"
-
-## fzf
-FZF_BASE="$HOME/.fzf"
-
-## go
-export GOPATH="$HOME/go"
-export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$GOBIN"
-## IaC
-### tf
-alias tf="terraform"
-### tg
-export TERRAGRUNT_IGNORE_EXTERNAL_DEPENDENCIES=true
-alias tg="terragrunt"
-
-# k8s
-### krew
-export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
-### rancher desktop
-export PATH="$PATH:$HOME/.rd/bin"
-
-## homebrew
-export PATH="$PATH:/opt/homebrew/bin"
-# export PATH="$PATH:$HOME/.local/binexport"
-export HOMEBREW_NO_INSTALL_UPGRADE=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-
-## oh-my-zsh
-alias zshconf="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-
-## postgres
-export PATH="$PATH:/opt/homebrew/opt/postgresql@11/bin"
-
-## python
-alias py3='python3'
-
-## yt-dlp
-alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
-
-# FN
-alias fn-vault="export VAULT_ADDR=https://vault.fiscalnoteprod.net"
-alias fn1p="op item get ym72ao6lyeqcvq4qwkbhrzmgnm --reveal --fields label=password | pbcopy"
-alias fnokta="okta-awscli -s -f"
-alias fnsso="aws sso login --sso-session fn-sso"
-alias fnrepos="cd $HOME/fn/repos"
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="/usr/local/sbin:$PATH"
