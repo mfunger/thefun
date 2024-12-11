@@ -44,4 +44,5 @@ declare -a DOTFILES_TO_STOW
 
 stow -d $DOTFILES_DIR -s .bin -t $HOME
 stow -d $DOTFILES_DIR -s homebrew -t $HOME
-stow -d $DOTFILES_DIR -s .oh-my-zsh  
+stow -d $DOTFILES_DIR -s .oh-my-zsh  $HOME
+stow -d $DOTFILES_DIR -s .config/nix-darwin -t $HOME/.config

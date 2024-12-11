@@ -1,5 +1,4 @@
-cask '1password'
-cask '1password-cli'
+
 brew 'adr-tools'
 cask 'alfred'
 brew 'ansible'
@@ -26,7 +25,6 @@ brew 'hugo'
 cask 'iterm2'
 brew 'jenv'
 brew 'jq'
-brew 'lazygit'
 brew 'mas'
 brew 'mkdocs'
 brew 'neovim'
@@ -72,14 +70,17 @@ brew 'git'
 cask 'gitkraken'
 brew 'gh'
 cask 'git-credential-manager'
+brew 'lazygit'
 
 # go
 brew 'golang'
 brew 'go-task'
 
 #IaC
+## opentofu
+brew 'opentofu'
 ## terraform
-brew 'terraform'
+# brew 'terraform' # use asdf instead
 brew 'terraform-docs'
 # brew 'tfenv' - removed so the CloudPosse tfenv can be installed
 ## terragrunt
@@ -97,7 +98,6 @@ cask 'datasette'
 # virtual
 ## k8s
 brew 'helm'
-brew 'helmfile'
 brew 'k9s'
 brew 'kubectl'
 brew 'kubectx'
@@ -105,6 +105,11 @@ brew 'kustomize'
 brew 'krew'
 cask 'rancher'
 brew 'clusterctl'
+## vagrant
+cask 'vagrant'
+
+## docker
+
 
 # python
 brew 'pyenv'
@@ -114,7 +119,11 @@ brew 'pipx'
 brew 'poetry'
 
 # secrets
+## vault
 brew 'vault'
+## 1password
+cask '1password'
+cask '1password-cli'
 
 # zsh
 brew 'zsh'
@@ -130,11 +139,3 @@ mas '1Password for Safari', id: 1569813296
 mas 'Notability', id: 360593530
 mas 'iStat Menus', id: 1319778037
 # mas 'Xcode', id: 497799835
-
-# FN
-brew 'okta-awscli'
-cask 'keeper-password-manager'
-brew 'helmfile'
-brew 'sops'
-# brew 'dotenv'
-brew 'dotenvx/brew/dotenvx'

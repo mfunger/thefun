@@ -70,7 +70,7 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
     asdf 
     aws 
-    brew 
+    brew
     colored-man-pages 
     command-not-found 
     docker 
@@ -82,7 +82,10 @@ plugins=(
     poetry 
     python
     # starship 
-    thefuck)
+    thefuck
+    tmux
+    vagrant
+    )
 
 # oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -143,7 +146,10 @@ white() { echo -e "${WHITE_B}${1}${RESET}"; }
 ## 1Password
 ### SSH
 ### export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-
+### docker login
+export OP_PD_GH_U=`op item get "platypi - Docker" --format json --fields label=username | yq '.value'`
+export OP_PD_GH_P=`op item get p4tqkhpaughdqzjt265wpmthwu --fields pat --reveal`
+alias docker_pd_login="docker login -u $OP_PD_GH_U -p $OP_PD_GP_P"
 ## boilerplate
 #alias boilerplate='/opt/homebrew/bin/boilerplate_darwin_arm_64'
 
@@ -172,7 +178,6 @@ export PATH="$PATH:$HOME/.rd/bin"
 
 ## homebrew
 export PATH="$PATH:/opt/homebrew/bin"
-# export PATH="$PATH:$HOME/.local/binexport"
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
@@ -188,10 +193,5 @@ alias py3='python3'
 
 ## yt-dlp
 alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
-
-# FN
-alias fn-vault="export VAULT_ADDR=https://vault.fiscalnoteprod.net"
-alias fn1p="op item get ym72ao6lyeqcvq4qwkbhrzmgnm --reveal --fields label=password | pbcopy"
-alias fnokta="okta-awscli -s -f"
-alias fnsso="aws sso login --sso-session fn-sso"
-alias fnrepos="cd $HOME/fn/repos"
+alias yt137="yt-dlp -f 137llllwhich /usr/"
+alias yt616="yt-dlp -f 616"
