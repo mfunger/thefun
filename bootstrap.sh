@@ -50,6 +50,6 @@ echo "stow -d dotfiles -S .oh-my-zsh -t $ZSH_CUSTOM"
 stow -d dotfiles -S .oh-my-zsh -t $ZSH_CUSTOM
 echo "stow -d dotfiles -S zsh -t $HOME"
 stow -d dotfiles -S zsh -t $HOME
-
+echo "stow -d dotfiles -S ssh -t $HOME/.ssh
 #reload oh my zsh to capture the changes
 omz reload
