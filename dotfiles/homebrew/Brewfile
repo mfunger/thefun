@@ -10,7 +10,7 @@ cask 'bitwarden'
 cask 'chromium'
 brew 'commitizen'
 brew 'coreutils'
-cask 'crossover'
+# cask 'crossover'
 brew 'curl'
 brew 'dagger'
 brew 'exiftool'
@@ -29,7 +29,7 @@ brew 'mas'
 brew 'mkdocs'
 brew 'neovim'
 cask 'obsidian'
-brew 'pass'
+# brew 'pass'
 cask 'rectangle'
 cask 'slack'
 cask 'snagit'
@@ -67,7 +67,7 @@ cask 'google-cloud-sdk'
 
 # git
 brew 'git'
-cask 'gitkraken'
+# cask 'gitkraken'
 brew 'gh'
 cask 'git-credential-manager'
 brew 'lazygit'
@@ -101,15 +101,25 @@ brew 'helm'
 brew 'k9s'
 brew 'kubectl'
 brew 'kubectx'
-brew 'kustomize'
+# brew 'kustomize'
 brew 'krew'
-cask 'rancher'
+# cask 'rancher'
 brew 'clusterctl'
 ## vagrant
 cask 'vagrant'
 
+## talos
+
+brew 'talosctl'
+
 ## docker
 
+## podman
+
+cask 'podman-desktop'
+brew 'podman'
+brew 'podman-compose'
+brew 'podman-tui'
 
 # python
 brew 'pyenv'
@@ -134,8 +144,8 @@ brew 'zsh-fast-syntax-highlighting'
 
 # mas installs
 mas 'Todoist', id: 585829637
-mas 'Magnet', id: 441258766
+# mas 'Magnet', id: 441258766
 mas '1Password for Safari', id: 1569813296
-mas 'Notability', id: 360593530
+# mas 'Notability', id: 360593530
 mas 'iStat Menus', id: 1319778037
 # mas 'Xcode', id: 497799835

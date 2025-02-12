@@ -68,8 +68,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # PLUGINS
 
 plugins=(
-    asdf 
-    aws 
+    # asdf 
+    aws
     brew
     colored-man-pages 
     command-not-found 
@@ -79,12 +79,12 @@ plugins=(
     gh 
     golang 
     kubectl 
-    poetry 
-    python
+    # poetry 
+    # python
     # starship 
     thefuck
-    tmux
-    vagrant
+    # tmux
+    # vagrant
     )
 
 # oh-my-zsh
@@ -193,5 +193,5 @@ alias py3='python3'
 
 ## yt-dlp
 alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
-alias yt137="yt-dlp -f 137llllwhich /usr/"
+alias yt137="yt-dlp -f 137"
 alias yt616="yt-dlp -f 616"
