@@ -11,7 +11,10 @@ if [ -f ~/.zshrc ]; then
     echo "Oh-My-Zsh is installed, but not currently being used as the shell."
   fi
 else
-  echo "Oh-My-Zsh is not installed."
+  echo "Oh My Zsh is not installed."
+  echo "Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "Oh My Zsh installed, make sure to restart the terminal session."
 fi
 
 
@@ -38,11 +41,15 @@ if [[ $? != 0 ]] ; then
   exit 1
 fi
 
-## list 
-export DOTFILES_DIR="$PWD/dotfiles"
-declare -a DOTFILES_TO_STOW
+## Stow what we need
 
-stow -d $DOTFILES_DIR -s .bin -t $HOME
-stow -d $DOTFILES_DIR -s homebrew -t $HOME
-stow -d $DOTFILES_DIR -s .oh-my-zsh  $HOME
-stow -d $DOTFILES_DIR -s .config/nix-darwin -t $HOME/.config
+export $ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+echo "stow -d dotfiles -S homebrew -t $HOME"
+stow -d dotfiles -S homebrew -t $HOME
+echo "stow -d dotfiles -S .oh-my-zsh -t $ZSH_CUSTOM"
+stow -d dotfiles -S .oh-my-zsh -t $ZSH_CUSTOM
+echo "stow -d dotfiles -S zsh -t $HOME"
+stow -d dotfiles -S zsh -t $HOME
+
+#reload oh my zsh to capture the changes
+omz reload

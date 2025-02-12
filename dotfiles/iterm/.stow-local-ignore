@@ -1,0 +1,12 @@
+# git
+\.git
+\.gitignore
+\.gitmodules
+# readme and licensing
+^/README.*
+^/LICENSE.*
+^/COPYING
+# mac
+\.DS_Store
+# stow
+\.stow-local-ignore

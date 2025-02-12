@@ -81,9 +81,8 @@ plugins=(
     kubectl 
     # poetry 
     # python
-    # starship 
     thefuck
-    # tmux
+    tmux
     # vagrant
     )
 
@@ -145,30 +144,25 @@ white() { echo -e "${WHITE_B}${1}${RESET}"; }
 
 ## 1Password
 ### SSH
-### export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-### docker login
-export OP_PD_GH_U=`op item get "platypi - Docker" --format json --fields label=username | yq '.value'`
-export OP_PD_GH_P=`op item get p4tqkhpaughdqzjt265wpmthwu --fields pat --reveal`
-alias docker_pd_login="docker login -u $OP_PD_GH_U -p $OP_PD_GP_P"
-## boilerplate
-#alias boilerplate='/opt/homebrew/bin/boilerplate_darwin_arm_64'
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 ## curl
 export PATH="$PATH:/opt/homebrew/opt/curl/bin"
 
 ## fzf
-FZF_BASE="$HOME/.fzf"
+export FZF_BASE="$HOME/.fzf"
 
 ## go
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOBIN"
+
 ## IaC
-### tf
-alias tf="terraform"
 ### tg
 export TERRAGRUNT_IGNORE_EXTERNAL_DEPENDENCIES=true
-alias tg="terragrunt"
 
 # k8s
 ### krew
@@ -176,22 +170,10 @@ export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 ### rancher desktop
 export PATH="$PATH:$HOME/.rd/bin"
 
-## homebrew
-export PATH="$PATH:/opt/homebrew/bin"
+# homebrew
+export PATH="$PATH:opt/homebrew/bin"
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-## oh-my-zsh
-alias zshconf="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-
 ## postgres
 export PATH="$PATH:/opt/homebrew/opt/postgresql@11/bin"
-
-## python
-alias py3='python3'
-
-## yt-dlp
-alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
-alias yt137="yt-dlp -f 137"
-alias yt616="yt-dlp -f 616"

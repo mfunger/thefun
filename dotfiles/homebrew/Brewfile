@@ -31,12 +31,13 @@ brew 'neovim'
 cask 'obsidian'
 # brew 'pass'
 cask 'rectangle'
-cask 'slack'
+# cask 'slack'
 cask 'snagit'
-brew 'starship'
-cask 'steam'
+# brew 'starship'
+# cask 'steam'
 brew 'stow'
 brew 'telnet'
+brew 'thefuck'
 brew 'tmux'
 brew 'trash'
 brew 'tree'
@@ -49,7 +50,7 @@ brew 'yq'
 brew 'yt-dlp'
 cask 'yubico-yubikey-manager'
 cask 'xbar'
-cask 'zoom'
+# cask 'zoom'
 ## fonts
 # cask 'homebrew/cask-fonts'
 cask 'font-hack-nerd-font'
@@ -78,41 +79,38 @@ brew 'go-task'
 
 #IaC
 ## opentofu
-brew 'opentofu'
+## spacelift
+brew 'spacelift-io/spacelift/spacectl'
+# brew 'opentofu' # use asdf instead
 ## terraform
 # brew 'terraform' # use asdf instead
 brew 'terraform-docs'
-# brew 'tfenv' - removed so the CloudPosse tfenv can be installed
 ## terragrunt
 brew 'terragrunt'
 ## terramate
 brew 'terramate'
-## visualizer
-tap 'inkdrop-org/inkdrop-visualizer'
-brew 'inkdrop-visualizer'
 
 # rdbms
 cask 'pgadmin4'
 cask 'datasette'
 
+
 # virtual
 ## k8s
 brew 'helm'
+brew 'k3d'
 brew 'k9s'
+brew 'kops'
 brew 'kubectl'
 brew 'kubectx'
-# brew 'kustomize'
+brew 'kustomize'
 brew 'krew'
-# cask 'rancher'
-brew 'clusterctl'
+
 ## vagrant
 cask 'vagrant'
 
 ## talos
-
 brew 'talosctl'
-
-## docker
 
 ## podman
 
@@ -130,7 +128,7 @@ brew 'poetry'
 
 # secrets
 ## vault
-brew 'vault'
+# brew 'vault' #deprecated bc of the BUSL change
 ## 1password
 cask '1password'
 cask '1password-cli'
