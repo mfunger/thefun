@@ -43,13 +43,13 @@ fi
 
 ## Stow what we need
 
-export $ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+export ZSH_CUSTOM="${HOME}/.oh-my-zsh/custom"
 echo "stow -d dotfiles -S homebrew -t $HOME"
 stow -d dotfiles -S homebrew -t $HOME
 echo "stow -d dotfiles -S .oh-my-zsh -t $ZSH_CUSTOM"
 stow -d dotfiles -S .oh-my-zsh -t $ZSH_CUSTOM
 echo "stow -d dotfiles -S zsh -t $HOME"
 stow -d dotfiles -S zsh -t $HOME
-echo "stow -d dotfiles -S ssh -t $HOME/.ssh
+echo "stow -d dotfiles -S ssh -t $HOME/.ssh"
+stow -d dotfiles -S ssh -t $HOME/.ssh
 #reload oh my zsh to capture the changes
-omz reload
