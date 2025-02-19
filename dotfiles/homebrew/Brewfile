@@ -22,6 +22,7 @@ cask 'google-drive'
 brew 'graphviz'
 brew 'htop'
 brew 'hugo'
+cask 'iina'
 cask 'iterm2'
 brew 'jenv'
 brew 'jq'
@@ -114,10 +115,10 @@ brew 'talosctl'
 
 ## podman
 
-cask 'podman-desktop'
-brew 'podman'
-brew 'podman-compose'
-brew 'podman-tui'
+# cask 'podman-desktop'
+# brew 'podman'
+# brew 'podman-compose'
+# brew 'podman-tui'
 
 # python
 brew 'pyenv'
@@ -125,6 +126,8 @@ brew 'python3'
 brew 'ipython'
 brew 'pipx'
 brew 'poetry'
+# brew 'tcl-tk'
+brew 'python-tk'
 
 # secrets
 ## vault
@@ -145,5 +148,5 @@ mas 'Todoist', id: 585829637
 # mas 'Magnet', id: 441258766
 mas '1Password for Safari', id: 1569813296
 # mas 'Notability', id: 360593530
-mas 'iStat Menus', id: 1319778037
+# mas 'iStat Menus', id: 1319778037
 # mas 'Xcode', id: 497799835
