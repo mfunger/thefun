@@ -79,8 +79,8 @@ plugins=(
     gh 
     golang 
     kubectl 
-    # poetry 
-    # python
+    poetry 
+    python
     thefuck
     tmux
     # vagrant
@@ -142,6 +142,29 @@ purple() { echo -e "${PURPLE_B}${1}${RESET}"; }
 cyan() { echo -e "${CYAN_B}${1}${RESET}"; }
 white() { echo -e "${WHITE_B}${1}${RESET}"; }
 
+# IaC
+alias tf='terraform'
+alias tg='terragrunt'
+
+# oh-my-zsh
+alias zshconf="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+
+#python
+alias p3='python3'
+
+## yt-dlp
+alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
+alias yt137="yt-dlp -f 137"
+alias yt616="yt-dlp -f 616"
+
+## repos
+
+alias repos="cd $HOME/repos"
+alias mediocrity="cd $HOME/repos/mfunger/mediocrity"
+alias thefun="cd $HOME/repos/mfunger/thefun"
+alias ppi="cd $HOME/repos/platypi"
+
 ## 1Password
 ### SSH
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
@@ -176,4 +199,34 @@ export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 ## postgres
-export PATH="$PATH:/opt/homebrew/opt/postgresql@11/bin"
+# export PATH="$PATH:/opt/homebrew/opt/postgresql@11/bin"
+
+# python
+## tcl-tk
+export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
+export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
+export PATH=$PATH:/usr/local/opt/tcl-tk/bin
+
+# aliases (until I can figure out custom alias in oh my zsh)
+# boilerplate
+#alias boilerplate='/opt/homebrew/bin/boilerplate_darwin_arm_64'
+
+## homebrew
+export PATH="$PATH:/opt/homebrew/bin"
+
+
+# IaC
+alias tf='terraform'
+alias tg='terragrunt'
+
+# oh-my-zsh
+alias zshconf="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+
+#python
+alias p3='python3'
+
+## yt-dlp
+alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
+alias yt137="yt-dlp -f 137"
+alias yt616="yt-dlp -f 616"
