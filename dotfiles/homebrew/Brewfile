@@ -87,7 +87,7 @@ brew 'spacelift-io/spacelift/spacectl'
 # brew 'terraform' # use asdf instead
 brew 'terraform-docs'
 ## terragrunt
-brew 'terragrunt'
+# brew 'terragrunt'
 ## terramate
 brew 'terramate'
 
@@ -101,8 +101,8 @@ cask 'datasette'
 brew 'helm'
 brew 'k3d'
 brew 'k9s'
-brew 'kops'
-brew 'kubectl'
+# brew 'kops' # managed by asdf
+# brew 'kubectl' # managed by asdf
 brew 'kubectx'
 brew 'kustomize'
 brew 'krew'
