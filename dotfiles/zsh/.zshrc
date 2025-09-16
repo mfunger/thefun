@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jonathan"
+# ZSH_THEME="agnoster"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +68,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # PLUGINS
 
 plugins=(
-    # asdf 
+    asdf 
     aws
     brew
     colored-man-pages 
@@ -83,22 +83,10 @@ plugins=(
     python
     thefuck
     tmux
+    # kube-ps1
     # vagrant
     )
 
-# oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-## autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-## completions
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-## syntx hightlight
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-## starship
-# eval "$(starship init zsh)"
-# export STARSHIP_CONFIG="$HOME/.starship/starship.toml"
-# export STARSHIP_CACHE=~/$STARSHIP_CONFIG/cache
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -108,9 +96,9 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#   export EDITOR="vim"
 # else
-#   export EDITOR='mvim'
+#   export EDITOR="mvim"
 # fi
 
 # Compilation flags
@@ -124,15 +112,18 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 #  Conf and aliases
 
+## PROMPT
+# PROMPT='$(kube_ps1)'$PROMPT
+
 ## colors
-RED_B='\e[1;91m'
-GREEN_B='\e[1;92m'
-YELLOW_B='\e[1;93m'
-BLUE_B='\e[1;94m'
-PURPLE_B='\e[1;95m'
-CYAN_B='\e[1;96m'
-WHITE_B='\e[1;97m'
-RESET='\e[0m'
+RED_B="\e[1;91m"
+GREEN_B="\e[1;92m"
+YELLOW_B="\e[1;93m"
+BLUE_B="\e[1;94m"
+PURPLE_B="\e[1;95m"
+CYAN_B="\e[1;96m"
+WHITE_B="\e[1;97m"
+RESET="\e[0m"
 
 red() { echo -e "${RED_B}${1}${RESET}"; }
 green() { echo -e "${GREEN_B}${1}${RESET}"; }
@@ -142,28 +133,49 @@ purple() { echo -e "${PURPLE_B}${1}${RESET}"; }
 cyan() { echo -e "${CYAN_B}${1}${RESET}"; }
 white() { echo -e "${WHITE_B}${1}${RESET}"; }
 
-# IaC
-alias tf='terraform'
-alias tg='terragrunt'
+## syntax hightlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# oh-my-zsh
-alias zshconf="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
+function new() {
+    if [[ $# -eq 0 ]]; then
+        open -a "iterm" "$PWD"
+    else
+        open -a "iterm" "$@"
+    fi
+}
 
-#python
-alias p3='python3'
+## enable comments "#" expressions in the prompt shell
+setopt INTERACTIVE_COMMENTS
 
-## yt-dlp
-alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
-alias yt137="yt-dlp -f 137"
-alias yt616="yt-dlp -f 616"
+## append new history entries to the history file
+setopt APPEND_HISTORY
+
+## save each command to the history file as soon as it is executed
+setopt INC_APPEND_HISTORY
+
+## ignore recording duplicate consecutive commands in the history
+setopt HIST_IGNORE_DUPS
+
+## ignore commands that start with a space in the history
+setopt HIST_IGNORE_SPACE
+
+## search history using Up and Down keys
+### >>> up arrow | down arrow
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+### >>> Home | End
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+
+## enable comments "#" expressions in the prompt shell
+setopt INTERACTIVE_COMMENTS
 
 ## repos
-
 alias repos="cd $HOME/repos"
 alias mediocrity="cd $HOME/repos/mfunger/mediocrity"
 alias thefun="cd $HOME/repos/mfunger/thefun"
 alias ppi="cd $HOME/repos/platypi"
+alias whoop="cd $HOME/repos/whoop"
 
 ## 1Password
 ### SSH
@@ -183,50 +195,102 @@ export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOBIN"
 
-## IaC
-### tg
-export TERRAGRUNT_IGNORE_EXTERNAL_DEPENDENCIES=true
+## homebrew
+export PATH="$PATH:/opt/homebrew/bin"
 
-# k8s
+## IaC
+### terragrunt
+export TERRAGRUNT_IGNORE_EXTERNAL_DEPENDENCIES=true
+### OpenTofu
+alias ot="tofu"
+
+## java
+export JDK_HOME=/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home/
+### jenv
+eval "$(jenv init -)"
+
+## k8s
+export KUBECTL_EXTERNAL_DIFF="colordiff -N -u"
 ### krew
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 ### rancher desktop
 export PATH="$PATH:$HOME/.rd/bin"
 
-# homebrew
+## homebrew
 export PATH="$PATH:opt/homebrew/bin"
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+## nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+## oh-my-zsh
+alias zshconf="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+
+source $ZSH/oh-my-zsh.sh
+### autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+### completions
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 ## postgres
 # export PATH="$PATH:/opt/homebrew/opt/postgresql@11/bin"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-# python
+## python
+alias p3="python3"
+### pyenv
+eval "$(pyenv init -)"
+PATH="$(pyenv root)/shims:${PATH}"
+export PATH
+
+## starship
+eval "$(starship init zsh)"
+# export STARSHIP_CONFIG="$HOME/.starship/starship.toml"
+# export STARSHIP_CACHE=~/$STARSHIP_CONFIG/cache
+
 ## tcl-tk
 export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
 export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
 export PATH=$PATH:/usr/local/opt/tcl-tk/bin
 
-# aliases (until I can figure out custom alias in oh my zsh)
-# boilerplate
-#alias boilerplate='/opt/homebrew/bin/boilerplate_darwin_arm_64'
-
-## homebrew
-export PATH="$PATH:/opt/homebrew/bin"
-
-
-# IaC
-alias tf='terraform'
-alias tg='terragrunt'
-
-# oh-my-zsh
-alias zshconf="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-
-#python
-alias p3='python3'
-
 ## yt-dlp
 alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"
 alias yt137="yt-dlp -f 137"
 alias yt616="yt-dlp -f 616"
+
+
+# Created by `pipx` on 2025-02-21 15:01:16
+export PATH="$PATH:/Users/matthew.unger/.local/bin"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/matthew.unger/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+
+# Whoop
+alias whsso="aws sso login --sso-session okta"
+export KOPS_STATE_STORE="s3://com.whoop.kops"
+alias whkops="aws sso login --profile prod-kops"
+alias whapp="export AWS_REGION=us-west-2 && export AWS_PROFILE=prod-platform"
+alias whca="~/.aws/codeartifact_auth.sh"
+export WHOOP_API_KEY="2148ddb1-d452-45ec-bac5-1e55a32c2f8a"
+export WHOOP_API_KEY_PROD="b745cde6-5b40-438c-ba16-c53c1fd525d6"
+export NVM_DIR="$HOME/.nvm"
+export PATH=/opt/homebrew/bin:$PATH
+# export DOCKER_HOST=unix:///Users/matthew.unger/.docker/run/docker.sock
+# export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock 
+
+# function dd(){
+#   docker pull whoop/deployer:master
+#   docker run --platform linux/amd64 --rm -it -v ${PWD%/*}:/home -e REPO=${PWD##*/} -e CLI_DEPLOYER_GITHUB_TOKEN=${CLI_DEPLOYER_GITHUB_TOKEN} -e CLI_DEPLOYER_CIRCLE_CI_TOKEN=${CLI_DEPLOYER_CIRCLE_CI_TOKEN} whoop/deployer:master
+
+# }
+export SPACELIFT_API_KEY_ENDPOINT="https://whoop.app.spacelift.io"
+export SPACELIFT_API_KEY_ID="01K2JDD4Q8KBXMEGHVRRN4GN2E"
+export SPACELIFT_API_KEY_SECRET="5b516af7b0d7b28ca8b890c01837f3a77c87a662df6c3e95008e9d52f9e29566"
