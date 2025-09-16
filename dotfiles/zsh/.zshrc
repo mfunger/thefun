@@ -273,24 +273,3 @@ compinit
 # End of Docker CLI completions
 
 
-# Whoop
-alias whsso="aws sso login --sso-session okta"
-export KOPS_STATE_STORE="s3://com.whoop.kops"
-alias whkops="aws sso login --profile prod-kops"
-alias whapp="export AWS_REGION=us-west-2 && export AWS_PROFILE=prod-platform"
-alias whca="~/.aws/codeartifact_auth.sh"
-export WHOOP_API_KEY="2148ddb1-d452-45ec-bac5-1e55a32c2f8a"
-export WHOOP_API_KEY_PROD="b745cde6-5b40-438c-ba16-c53c1fd525d6"
-export NVM_DIR="$HOME/.nvm"
-export PATH=/opt/homebrew/bin:$PATH
-# export DOCKER_HOST=unix:///Users/matthew.unger/.docker/run/docker.sock
-# export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock 
-
-# function dd(){
-#   docker pull whoop/deployer:master
-#   docker run --platform linux/amd64 --rm -it -v ${PWD%/*}:/home -e REPO=${PWD##*/} -e CLI_DEPLOYER_GITHUB_TOKEN=${CLI_DEPLOYER_GITHUB_TOKEN} -e CLI_DEPLOYER_CIRCLE_CI_TOKEN=${CLI_DEPLOYER_CIRCLE_CI_TOKEN} whoop/deployer:master
-
-# }
-export SPACELIFT_API_KEY_ENDPOINT="https://whoop.app.spacelift.io"
-export SPACELIFT_API_KEY_ID="01K2JDD4Q8KBXMEGHVRRN4GN2E"
-export SPACELIFT_API_KEY_SECRET="5b516af7b0d7b28ca8b890c01837f3a77c87a662df6c3e95008e9d52f9e29566"
