@@ -25,6 +25,8 @@ format = "| [$symbol$branch]($style) "
 
 # https://starship.rs/config/#python
 [python]
+symbol = '🐍 '
+style = 'green'
 format = "| [$virtualenv]($style)"
 
 # https://starship.rs/config/#character
@@ -37,12 +39,13 @@ error_symbol = '[\$](bold black)'
 disabled = false
 format = '[$symbol$context( \($namespace\))]($style)'
 contexts = [
-  { context_pattern = "*kind*", style = "cyan bold", symbol = "📚 " },
-  { context_pattern = "*rancher-desktop*", style = "cyan bold", symbol = "📚 " },
-
-  { context_pattern = "dev", style = "cyan bold", symbol = "🔵 " },
-  { context_pattern = "homolog", style = "yellow bold", symbol = "🟡 " },
-  { context_pattern = "prod", style = "red bold", symbol = "🔴 " },
+  { context_pattern = "*kind*", style = "blue", symbol = "📚 " },
+  { context_pattern = "*rancher-desktop*", style = "blue", symbol = "📚 " },
+  # { context_pattern = "other*", style = "blue", symbol = "🔵 " },
+  { context_pattern = "dev-a", style = "yellow", symbol = "🟡 " },
+  { context_pattern = "dev-a.whoop.com", style = "yellow", symbol = "🟡 " },
+  { context_pattern = "prod-a", style = "red", symbol = "🔴 " },
+  { context_pattern = "prod-a.whoop.com", style = "red", symbol = "🔴 " },
 ]
 
 # https://starship.rs/config/#directory

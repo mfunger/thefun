@@ -116,22 +116,22 @@ plugins=(
 # PROMPT='$(kube_ps1)'$PROMPT
 
 ## colors
-RED_B="\e[1;91m"
-GREEN_B="\e[1;92m"
-YELLOW_B="\e[1;93m"
-BLUE_B="\e[1;94m"
-PURPLE_B="\e[1;95m"
-CYAN_B="\e[1;96m"
-WHITE_B="\e[1;97m"
-RESET="\e[0m"
+# RED_B="\e[1;91m"
+# GREEN_B="\e[1;92m"
+# YELLOW_B="\e[1;93m"
+# BLUE_B="\e[1;94m"
+# PURPLE_B="\e[1;95m"
+# CYAN_B="\e[1;96m"
+# WHITE_B="\e[1;97m"
+# RESET="\e[0m"
 
-red() { echo -e "${RED_B}${1}${RESET}"; }
-green() { echo -e "${GREEN_B}${1}${RESET}"; }
-yellow() { echo -e "${YELLOW_B}${1}${RESET}"; }
-blue() { echo -e "${BLUE_B}${1}${RESET}"; }
-purple() { echo -e "${PURPLE_B}${1}${RESET}"; }
-cyan() { echo -e "${CYAN_B}${1}${RESET}"; }
-white() { echo -e "${WHITE_B}${1}${RESET}"; }
+# red() { echo -e "${RED_B}${1}${RESET}"; }
+# green() { echo -e "${GREEN_B}${1}${RESET}"; }
+# yellow() { echo -e "${YELLOW_B}${1}${RESET}"; }
+# blue() { echo -e "${BLUE_B}${1}${RESET}"; }
+# purple() { echo -e "${PURPLE_B}${1}${RESET}"; }
+# cyan() { echo -e "${CYAN_B}${1}${RESET}"; }
+# white() { echo -e "${WHITE_B}${1}${RESET}"; }
 
 ## syntax hightlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -181,7 +181,10 @@ alias whoop="cd $HOME/repos/whoop"
 ### SSH
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
-# asdf
+## aws
+export AWS_PAGER=""
+
+## asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 ## curl
@@ -197,6 +200,8 @@ export PATH="$PATH:$GOBIN"
 
 ## homebrew
 export PATH="$PATH:/opt/homebrew/bin"
+export HOMEBREW_NO_INSTALL_UPGRADE=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 ## IaC
 ### terragrunt
@@ -216,10 +221,8 @@ export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 ### rancher desktop
 export PATH="$PATH:$HOME/.rd/bin"
 
-## homebrew
-export PATH="$PATH:opt/homebrew/bin"
-export HOMEBREW_NO_INSTALL_UPGRADE=1
-export HOMEBREW_NO_AUTO_UPDATE=1
+## macos
+alias dns-flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 ## nvm
 export NVM_DIR="$HOME/.nvm"
