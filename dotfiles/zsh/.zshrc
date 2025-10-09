@@ -243,6 +243,7 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 # export PATH="$PATH:/opt/homebrew/opt/postgresql@11/bin"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+alias PG_PASS=`LC_ALL=C export PG_PASSWORD=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 25)`
 
 ## python
 alias p3="python3"
