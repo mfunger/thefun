@@ -115,23 +115,23 @@ plugins=(
 ## PROMPT
 # PROMPT='$(kube_ps1)'$PROMPT
 
-## colors
-# RED_B="\e[1;91m"
-# GREEN_B="\e[1;92m"
-# YELLOW_B="\e[1;93m"
-# BLUE_B="\e[1;94m"
-# PURPLE_B="\e[1;95m"
-# CYAN_B="\e[1;96m"
-# WHITE_B="\e[1;97m"
-# RESET="\e[0m"
+# colors
+RED_B="\e[1;91m"
+GREEN_B="\e[1;92m"
+YELLOW_B="\e[1;93m"
+BLUE_B="\e[1;94m"
+PURPLE_B="\e[1;95m"
+CYAN_B="\e[1;96m"
+WHITE_B="\e[1;97m"
+RESET="\e[0m"
 
-# red() { echo -e "${RED_B}${1}${RESET}"; }
-# green() { echo -e "${GREEN_B}${1}${RESET}"; }
-# yellow() { echo -e "${YELLOW_B}${1}${RESET}"; }
-# blue() { echo -e "${BLUE_B}${1}${RESET}"; }
-# purple() { echo -e "${PURPLE_B}${1}${RESET}"; }
-# cyan() { echo -e "${CYAN_B}${1}${RESET}"; }
-# white() { echo -e "${WHITE_B}${1}${RESET}"; }
+red() { echo -e "${RED_B}${1}${RESET}"; }
+green() { echo -e "${GREEN_B}${1}${RESET}"; }
+yellow() { echo -e "${YELLOW_B}${1}${RESET}"; }
+blue() { echo -e "${BLUE_B}${1}${RESET}"; }
+purple() { echo -e "${PURPLE_B}${1}${RESET}"; }
+cyan() { echo -e "${CYAN_B}${1}${RESET}"; }
+white() { echo -e "${WHITE_B}${1}${RESET}"; }
 
 ## syntax hightlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -190,8 +190,14 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 ## curl
 export PATH="$PATH:/opt/homebrew/opt/curl/bin"
 
+## docker
+alias dspa="docker system prune -a"
+
 ## fzf
 export FZF_BASE="$HOME/.fzf"
+
+## git
+# export GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 ## go
 export GOPATH="$HOME/go"
@@ -202,6 +208,7 @@ export PATH="$PATH:$GOBIN"
 export PATH="$PATH:/opt/homebrew/bin"
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+alias brew-leaves="brew leaves | sed 's/^/install /' > Brewfile"
 
 ## IaC
 ### terragrunt
@@ -251,6 +258,8 @@ alias p3="python3"
 eval "$(pyenv init -)"
 PATH="$(pyenv root)/shims:${PATH}"
 export PATH
+### uv
+eval "$(uv generate-shell-completion zsh)"
 
 ## starship
 eval "$(starship init zsh)"
@@ -261,6 +270,10 @@ eval "$(starship init zsh)"
 export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
 export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
 export PATH=$PATH:/usr/local/opt/tcl-tk/bin
+
+## terminal
+
+alias newterm="open . -a iterm"
 
 ## yt-dlp
 alias ytm="yt-dlp -x --audio-format aac --embed-thumbnail"

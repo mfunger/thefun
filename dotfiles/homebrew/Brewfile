@@ -1,152 +1,105 @@
-
-brew 'adr-tools'
-cask 'alfred'
-brew 'ansible'
-brew 'argocd'
-brew 'asdf'
-brew 'bash-completion'
-brew 'bat'
-cask 'bitwarden'
-cask 'chromium'
-brew 'commitizen'
-brew 'coreutils'
-# cask 'crossover'
-brew 'curl'
-brew 'dagger'
-brew 'exiftool'
-cask 'firefox'
-brew 'ffmpeg'
-brew 'fprobe'
-brew 'fzf'
-cask 'google-drive'
-brew 'graphviz'
-brew 'htop'
-brew 'hugo'
-cask 'iina'
-cask 'iterm2'
-brew 'jenv'
-brew 'jq'
-brew 'mas'
-brew 'mkdocs'
-brew 'neovim'
-cask 'obsidian'
-# brew 'pass'
-cask 'rectangle'
-# cask 'slack'
-cask 'snagit'
-# brew 'starship'
-# cask 'steam'
-brew 'stow'
-brew 'telnet'
-brew 'thefuck'
-brew 'tmux'
-brew 'trash'
-brew 'tree'
-brew 'vim'
-cask 'visual-studio-code'
-brew 'watch'
-brew 'wget'
-cask 'whatsapp'
-brew 'yq'
-brew 'yt-dlp'
-cask 'yubico-yubikey-manager'
-cask 'xbar'
-# cask 'zoom'
-## fonts
-# cask 'homebrew/cask-fonts'
-cask 'font-hack-nerd-font'
-
-# api
-cask 'postman'
-cask 'postman-cli'
-
-# cloud
-## AWS
-brew 'awscli'
-# brew 'turbot/tap/steampipe'
-## GCP 
-cask 'google-cloud-sdk'
-
-# git
-brew 'git'
-# cask 'gitkraken'
-brew 'gh'
-cask 'git-credential-manager'
-brew 'lazygit'
-
-# go
-brew 'golang'
-brew 'go-task'
-
-#IaC
-## opentofu
-## spacelift
-brew 'spacelift-io/spacelift/spacectl'
-# brew 'opentofu' # use asdf instead
-## terraform
-# brew 'terraform' # use asdf instead
-brew 'terraform-docs'
-## terragrunt
-# brew 'terragrunt'
-## terramate
-brew 'terramate'
-
-# rdbms
-cask 'pgadmin4'
-cask 'datasette'
-
-
-# virtual
-## k8s
-brew 'helm'
-brew 'k3d'
-brew 'k9s'
-# brew 'kops' # managed by asdf
-# brew 'kubectl' # managed by asdf
-brew 'kubectx'
-brew 'kustomize'
-brew 'krew'
-
-## vagrant
-cask 'vagrant'
-
-## talos
-brew 'talosctl'
-
-## podman
-
-# cask 'podman-desktop'
-# brew 'podman'
-# brew 'podman-compose'
-# brew 'podman-tui'
-
-# python
-brew 'pyenv'
-brew 'python3'
-brew 'ipython'
-brew 'pipx'
-brew 'poetry'
-# brew 'tcl-tk'
-brew 'python-tk'
-
-# secrets
-## vault
-# brew 'vault' #deprecated bc of the BUSL change
-## 1password
-cask '1password'
-cask '1password-cli'
-
-# zsh
-brew 'zsh'
-brew 'zsh-autosuggestions'
-brew 'zsh-completions'
-brew 'zsh-syntax-highlighting'
-brew 'zsh-fast-syntax-highlighting'
-
-# mas installs
-mas 'Todoist', id: 585829637
-# mas 'Magnet', id: 441258766
-mas '1Password for Safari', id: 1569813296
-# mas 'Notability', id: 360593530
-# mas 'iStat Menus', id: 1319778037
-# mas 'Xcode', id: 497799835
+install adr-tools
+install ansible
+install argo
+install argocd
+install asdf
+install ast-grep
+install atlassian/acli/acli
+install aws-cdk
+install awscli
+install bash-completion
+install bat
+install cfssl
+install cilium-cli
+install clusterctl
+install commitizen
+install cookiecutter
+install copyparty
+install coreutils
+install cyphernetes
+install dagger
+install datadog/pack/pup
+install derailed/popeye/popeye
+install devcontainer
+install dnsperf
+install docker
+install docker-compose
+install docker-ls
+install docker-machine
+install editorconfig
+install etcd
+install exiftool
+install ffmpeg
+install fprobe
+install fzf
+install gh
+install gitea
+install go
+install go-task
+install graphviz
+install gromgit/fuse/s3fs-mac
+install helm
+install homebank
+install htop
+install hubble
+install hugo
+install inkdrop-org/inkdrop-visualizer/inkdrop-visualizer
+install ipcalc
+install ipython
+install jenv
+install jq
+install jsonlint
+install k3d
+install k9s
+install kafkactl-aws-plugin
+install kind
+install krew
+install kube-ps1
+install kubeconform
+install kubectx
+install kustomize
+install lazygit
+install locust
+install mas
+install maven
+install minio
+install mkdocs
+install neovim
+install nuclei
+install nvm
+install openjdk@11
+install openjdk@17
+install pass
+install pillow
+install pipx
+install poetry
+install pyenv
+install pylint
+install python-tk@3.13
+install rtorrent
+install shellcheck
+install spacelift-io/spacelift/spacectl
+install starship
+install stow
+install talosctl
+install telnet
+install terraform-docs
+install terragrunt
+install terramate
+install thefuck
+install tmux
+install trash
+install trivy
+install uv
+install valkey
+install vim
+install watch
+install wget
+install yamllint
+install yq
+install yt-dlp
+install zsh
+install zsh-autosuggestions
+install zsh-completions
+install zsh-fast-syntax-highlighting
+install zsh-syntax-highlighting
